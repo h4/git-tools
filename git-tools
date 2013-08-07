@@ -20,13 +20,14 @@ main () {
 	# sanity checks
 	SUBCOMMAND="$1"; shift
 
-	if [ ! -e "$GITTOOLS_DIR/git-$SUBCOMMAND" ]; then
+	if [ ! -e "$GITTOOLS_DIR/git-tools-$SUBCOMMAND" ]; then
 		usage
 		exit 1
 	fi
 
 	# run command
-	. "$GITTOOLS_DIR/git-$SUBCOMMAND"
+	. "$GITTOOLS_DIR/git-tools-$SUBCOMMAND"
 }
 
 main "$@"
+
