@@ -1,6 +1,13 @@
 # Скрипты для работы с Git
 
-! В разработке
+Установка:
+    
+    wget --no-check-certificate -q -O - https://github.com/h4/git-tools/raw/master/contrib/git-tools-installer.sh | sudo bash
+
+или
+
+    curl -L -O https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh
+	sudo bash gitflow-installer.sh
 
 ## clean-merged
 
