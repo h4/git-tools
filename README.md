@@ -26,5 +26,5 @@
 * -b BRANCH_NAME - имя целевой ветки. По умолчанию — develop
 
 <!-- Yandex.Metrika counter -->
-<img src="//mc.yandex.ru/watch/22011982" style="position:absolute; left:-9999px;" alt="" />
+<img src="http://mc.yandex.ru/watch/22011982" style="position:absolute; left:-9999px;" alt="" />
 <!-- /Yandex.Metrika counter -->
