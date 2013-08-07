@@ -72,13 +72,17 @@ require_git_repo() {
 	fi
 }
 
-get_merged_branches() {
-	MERGED=$( git branch --merged ${MAIN_BRANCH}  | cut -c 3-) > /dev/null 2>&1
-	if [ $? ]
+check_main_branch() {
+	COUNT=$( git branch -l | grep ${MAIN_BRANCH} | wc -l )
+	if [ $COUNT -eq 0 ]
 		then
-		die "fatal: branch ${MAIN_BRANCH} isn't available"
+		die "branch '${MAIN_BRANCH}' is not exists"
 	fi
-	
+}
+
+get_merged_branches() {
+	check_main_branch
+	MERGED=$( git branch --merged ${MAIN_BRANCH}  | cut -c 3-)
 	if [ $FORCE -eq 1 ]
 		then
 		return 0
