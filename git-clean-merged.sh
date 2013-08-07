@@ -37,7 +37,10 @@ done
 init() {
 	require_git_repo
 	get_merged_branches
-	delete_merged
+	if [ $LIST_ONLY -eq 0 ]
+		then
+		delete_merged
+	fi
 }
 
 require_git_repo() {
@@ -47,9 +50,13 @@ require_git_repo() {
 }
 
 get_merged_branches() {
-	echo "Branches already merged into branch ${MAIN_BRANCH}:" 
 	MERGED=$( git branch --merged ${MAIN_BRANCH}  | cut -c 3-)
-	# TODO: добавить проверку на отсутсвие ключа -f
+	if [ $FORCE -eq 1 ]
+		then
+		return 0
+	fi
+
+	echo "Branches already merged into branch ${MAIN_BRANCH}:" 
 	for branch in $MERGED
 		do echo "  $branch"
 	done
@@ -68,8 +75,14 @@ branch_is_excluded() {
 }
 
 delete_merged() {
-	echo -n "Delete this? y/[n]: "
-	read confirmed
+	if [ $FORCE -eq 1 ]
+		then
+		confirmed="y"
+	else
+		echo -n "Delete this? y/[n]: "
+		read confirmed
+	fi
+
 	if [ "$confirmed" = "y" ]
 		then
 			echo "Trying to delete branches..."
