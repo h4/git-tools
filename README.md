@@ -6,8 +6,8 @@
 
 или
 
-    curl -L -O https://github.com/h4/git-tools/raw/master/contrib/git-tools-installer.sh.sh
-	sudo bash git-tools-installer.sh.sh
+    curl -L -O https://github.com/h4/git-tools/raw/master/contrib/git-tools-installer.sh
+	sudo bash git-tools-installer.sh
 
 ## clean-merged
 
