@@ -20,7 +20,7 @@ LIST_ONLY=0
 help() {
 	echo "Find and remove branches that already merged in main branch"
 	echo ""
-	echo "usage: git-clean-merged [-h|-v|-f|-l] [-b BRANCH_NAME]"
+	echo "usage: git-tools clean-merged [-h|-v|-f|-l] [-b BRANCH_NAME]"
 	echo ""
 	echo "available options:"
 	echo "  -h              print this help"

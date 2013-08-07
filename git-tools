@@ -1,0 +1,32 @@
+#!/bin/bash
+
+export GITTOOLS_DIR=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+
+usage () {
+	echo "usage git-tools <subcommand>"
+	echo
+	echo "Available subcommands are:"
+	echo "    clean-merged  Find and remove branches that already merged"
+	echo
+	echo "Try 'git-tools <subcommand> -h' for details."
+}
+
+main () {
+	if [ $# -lt 1 ]; then
+		usage
+		exit 1
+	fi
+
+	# sanity checks
+	SUBCOMMAND="$1"; shift
+
+	if [ ! -e "$GITTOOLS_DIR/git-$SUBCOMMAND" ]; then
+		usage
+		exit 1
+	fi
+
+	# run command
+	. "$GITTOOLS_DIR/git-$SUBCOMMAND"
+}
+
+main "$@"
