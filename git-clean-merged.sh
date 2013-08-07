@@ -12,8 +12,25 @@ EXCLUDED="master develop"
 FORCE=0
 LIST_ONLY=0
 
-while getopts ":vflb:" option; do
+help() {
+	echo "Find and remove branches that already merged in main branch"
+	echo ""
+	echo "usage: git-clean-merged [-h|-v|-f|-l] [-b BRANCH_NAME]"
+	echo ""
+	echo "available options:"
+	echo "  -h              print this help"
+	echo "  -v              print version"
+	echo "  -f              force mode"
+	echo "  -l              print list of merged branches"
+	echo "  -b BRANCH_NAME  set BRANCH_NAME as main branch (default \"develop\")"
+}
+
+while getopts ":hvflb:" option; do
 	case $option in
+		"h" )
+			help
+			exit 0
+			;;
 		"v" )
 			echo "Version: ${VERSION}"
 			exit 0
