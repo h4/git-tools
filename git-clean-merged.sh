@@ -85,18 +85,18 @@ delete_merged() {
 
 	if [ "$confirmed" = "y" ]
 		then
-			echo "Trying to delete branches..."
-			for branch in $MERGED
-				do 
-					branch_is_excluded ${branch}
-					excluded=$?
-					if [ $excluded -eq 0 ]
-						then
-						echo "git branch -d ${branch}"
-						echo "  branch ${branch} deleted"
-					fi
-			done
-			echo "Finished"
+		echo "Trying to delete branches..."
+		for branch in $MERGED
+			do 
+				branch_is_excluded ${branch}
+				excluded=$?
+				if [ $excluded -eq 0 ]
+					then
+					git branch -d ${branch}
+					echo "  branch ${branch} deleted"
+				fi
+		done
+		echo "Finished"
 	else
 		echo "Ok, exit"
 	fi
