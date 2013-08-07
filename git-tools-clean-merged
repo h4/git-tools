@@ -73,7 +73,7 @@ require_git_repo() {
 }
 
 get_merged_branches() {
-	MERGED=$( git branch --merged ${MAIN_BRANCH}  | cut -c 3-)
+	MERGED=$( git branch --merged ${MAIN_BRANCH}  | cut -c 3-) > /dev/null 2>&1
 	if [ $? ]
 		then
 		die "fatal: branch ${MAIN_BRANCH} isn't available"
