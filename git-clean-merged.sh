@@ -65,6 +65,7 @@ init() {
 	fi
 }
 
+# are we in git repo directory?
 require_git_repo() {
 	if ! git rev-parse --git-dir >/dev/null 2>&1; then
 		die "fatal: Not a git repository"
