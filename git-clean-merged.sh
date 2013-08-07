@@ -4,9 +4,35 @@
 warn() { echo "$@" >&2; }
 die() { warn "$@"; exit 1; }
 
+VERSION=0.1.0
+
 MAIN_BRANCH="develop"
 MERGED=""
 EXCLUDED="master develop"
+FORCE=0
+LIST_ONLY=0
+
+while getopts ":vflb:" option; do
+	case $option in
+		"v" )
+			echo "Version: ${VERSION}"
+			exit 0
+			;;
+		"f" )
+			FORCE=1
+			;;
+		"l" )
+			LIST_ONLY=1
+			;;
+		"b" )
+			MAIN_BRANCH=$OPTARG
+			;;
+		\? )
+			echo "Unknown option: -$OPTARG"
+			exit 1
+			;;
+	esac
+done
 
 init() {
 	require_git_repo
