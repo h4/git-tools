@@ -6,8 +6,8 @@
 
 или
 
-    curl -L -O https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh
-	sudo bash gitflow-installer.sh
+    curl -L -O https://github.com/h4/git-tools/raw/master/contrib/git-tools-installer.sh.sh
+	sudo bash git-tools-installer.sh.sh
 
 ## clean-merged
 
@@ -23,4 +23,4 @@
 * -v - показать версию
 * -f - удаление без подтверждения
 * -l - вывести список веток, которые можно удалить
-* -b BRANC_NAME - имя целевой ветки. По умолчанию — develop
+* -b BRANCH_NAME - имя целевой ветки. По умолчанию — develop
