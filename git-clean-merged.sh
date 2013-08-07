@@ -1,4 +1,9 @@
 #!/bin/bash
+# ------------------------------------------------------------------
+# [Author] Mikhail Baranov <mkhl@brnv.ru>
+#          Find and remove branches that already merged 
+#          in main branch
+# ------------------------------------------------------------------
 
 # shell output
 warn() { echo "$@" >&2; }
